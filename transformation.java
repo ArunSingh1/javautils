@@ -106,3 +106,17 @@ public class StormReportsRecordReader {
     }
 
 }
+
+public static void main(String[] args) throws IOException {
+   List<String> lines = Files.readAllLines(new File("S:\\Work\\perso\\workspaces\\epita\\java-mob-programming-mnist\\mnist_train.csv").toPath());
+   List<double[]> linesAsDouble = new ArrayList<>();
+   lines.remove(0);
+   for (int i = 0; i < lines.size(); i++){
+      String[] parts = lines.get(i).split(",");
+      double[] lineAsDouble = new double[parts.length];
+      for (int j = 0 ; j < parts.length ; j++){
+         String cell = parts[j];
+         lineAsDouble[j] = Double.parseDouble(cell);
+      }
+      linesAsDouble.add(lineAsDouble);
+   }
